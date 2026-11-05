@@ -9,10 +9,7 @@ pipeline {
 
     environment {
         INSTANCE_ID = "${sh(script: 'curl -s http://169.254.169.254/latest/meta-data/instance-id', returnStdout: true).trim()}"
-        BRANCH_TYPE = "${env.BRANCH_NAME.startsWith('feature/') ? 'feature' :
-                       env.BRANCH_NAME == 'ec2-development' ? 'development' :
-                       env.BRANCH_NAME == 'ec2-staging' ? 'staging' :
-                       env.BRANCH_NAME == 'main' ? 'production' : 'other'}"
+        BRANCH_TYPE = "${env.BRANCH_NAME.startsWith('feature/') ? 'feature' : env.BRANCH_NAME == 'ec2-development' ? 'development' : env.BRANCH_NAME == 'ec2-staging' ? 'staging' : env.BRANCH_NAME == 'main' ? 'production' : 'other'}"
     }
 
     stages {
