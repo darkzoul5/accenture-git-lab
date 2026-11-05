@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo "Branch: ${env.BRANCH_NAME}"
                 echo "Branch Type: ${env.BRANCH_TYPE}"
-                echo "Instance ID: ${INSTANCE_ID}"
+                echo "Instance ID: ${env.INSTANCE_ID}"
                 echo "Deploy Target: ${params.DEPLOY_TARGET}"
             }
         }
