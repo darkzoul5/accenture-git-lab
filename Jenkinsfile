@@ -20,7 +20,7 @@ pipeline {
             steps {
                 echo "Validating scripts..."
                 sh '''
-                    cd scripts
+
                     echo "=== Script Validation ==="
                     for script in *.sh; do
                         if [ -f "$script" ]; then
@@ -36,7 +36,7 @@ pipeline {
             steps {
                 echo "Testing bootcamp scripts..."
                 sh '''
-                    cd scripts
+
                     echo "=== Testing Scripts ==="
                     chmod +x *.sh
 
@@ -58,7 +58,6 @@ pipeline {
                 branch 'main'
             }
             steps {
-                cd scripts
                 echo "Deploying scripts to /home/ssm-user/bootcamp-labs"
                 sh '''
                     echo "=== Deploying Bootcamp Scripts ==="
